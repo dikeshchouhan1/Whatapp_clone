@@ -8,12 +8,16 @@ const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(()=>{
-    setTimeout(()=>{
+   const time= setTimeout(()=>{
         setIsLoading(true);
         setTimeout(()=>{
            router.push("/(auth)/Terms_agree");
         },3000)
     },2000)
+  return ()=>{
+    clearTimeout(time)
+  }
+
   },[]);
   return (
     <SafeAreaView style={styles.container}>
